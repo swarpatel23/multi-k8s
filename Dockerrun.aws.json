@@ -6,14 +6,14 @@
             "image": "swar23/multi-client",
             "hostname": "client",
             "essential": false,
-            "memory": 128
+            "memory": 328
         },
         {
             "name": "server",
             "image": "swar23/multi-server",
             "hostname": "api",
             "essential": false,
-            "memory": 128
+            "memory": 328
 
         },
         {
@@ -21,7 +21,7 @@
             "image": "swar23/multi-worker",
             "hostname": "worker",
             "essential": false,
-            "memory": 128
+            "memory": 228
 
         },
         {
@@ -36,7 +36,7 @@
                 }
             ],
             "links": ["client","server"],
-            "memory": 128
+            "memory": 228
 
         }
 
