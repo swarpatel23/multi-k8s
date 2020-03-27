@@ -1,6 +1,6 @@
 {
     "AWSEBDockerrunVersion": 2,
-    "containerDefination": [
+    "containerDefinations": [
         {
             "name": "client",
             "image": "swar23/multi-client",
