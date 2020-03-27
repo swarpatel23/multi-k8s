@@ -9,14 +9,26 @@ script:
   - docker run -e CI=true swar23/react-test npm test
 
 after_success:
-  - docker build -t swar23/mulit-client ./client
-  - docker build -t swar23/mulit-nginx ./nginx
-  - docker build -t swar23/mulit-server ./server
-  - docker build -t swar23/mulit-worker ./worker
+  - docker build -t swar23/multi-client ./client
+  - docker build -t swar23/multi-nginx ./nginx
+  - docker build -t swar23/multi-server ./server
+  - docker build -t swar23/multi-worker ./worker
   #log in to docker cli
   - echo "$docker_password" | docker login -u "$docker_id" --password-stdin
   #take those images and push them to docker hub
-  - docker push swar23/mulit-client
-  - docker push swar23/mulit-nginx
-  - docker push swar23/mulit-server
-  - docker push swar23/mulit-worker
+  - docker push swar23/multi-client
+  - docker push swar23/multi-nginx
+  - docker push swar23/multi-server
+  - docker push swar23/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "multi-docker"
+  env: "MultiDocker-env"
+  bucket_name: "elasticbeanstalk-us-east-2-436866099277"
+  bucket_path: "docker-multi"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
