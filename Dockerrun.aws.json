@@ -28,7 +28,7 @@
             "name": "nginx",
             "image": "swar23/multi-nginx",
             "hostname": "nginx",
-            "essential": true,
+            "essential": false,
             "portMappings": [
                 {
                     "hostPort" : 80,
