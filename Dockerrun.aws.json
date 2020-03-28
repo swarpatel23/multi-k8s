@@ -6,7 +6,7 @@
             "image": "swar23/multi-client",
             "hostname": "client",
             "essential": false,
-            "memory": 228
+            "memory": 128
         },
         {
             "name": "server",
